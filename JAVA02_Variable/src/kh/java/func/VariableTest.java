@@ -193,7 +193,7 @@ public class VariableTest {
 		System.out.printf("%s\t%d\t%c\t%s\t%s\t%s",name,age,gender,addr,phone,email);
 		//System.out.printf("%s\t%d\t%c\t%s\t%s\t%s",name2,age2,gender2,addr2,phone2,email2);
 		
-		
+		//이거보여요
 		
 	}
 }
