@@ -45,6 +45,47 @@ public class ScanTest {
 		System.out.println("주소 : "+address);
 		System.out.println("성별 : "+gender);
 	}
+	public void exam1() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("이름 입력 : ");
+		String name = sc.next();
+		System.out.print("나이 입력 : ");
+		int age = sc.nextInt();		
+		System.out.print("주소 입력 : ");
+		sc.nextLine();
+		String address = sc.nextLine();
+		System.out.print("키 입력 : ");
+		double height = sc.nextDouble();
+		System.out.print("몸무게 입력 : ");
+		double weight = sc.nextDouble();
+		System.out.print("성별 입력 : ");
+		String genderString = sc.next();
+		char gender = genderString.charAt(0);
+		//키는 정수로변환, 몸무게는 첫째자리까지만 출력
+		System.out.println("이름 : " +name);
+		System.out.print("나이 : "+age);
+		System.out.println();
+		System.out.printf("주소 : %s\n",address);
+		int intHeight = (int)height;
+		System.out.println("키 : "+intHeight);
+		System.out.printf("몸무게 : %.1f",weight);
+		System.out.println("\n성별 : "+gender);
+	}
+	public void exam2() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("국어점수 입력 : ");
+		int kor = sc.nextInt();
+		System.out.print("수학점수 입력 : ");
+		int math = sc.nextInt();
+		System.out.print("영어점수 입력 : ");
+		int eng = sc.nextInt();
+		
+		int sum = kor+math+eng;
+		
+		double avg = sum/3.0;
+		
+		System.out.printf("당신 성적의 총 합은 %d점이고 평균은 %.2f 입니다!",sum,avg);
+	}
 }
 
 
