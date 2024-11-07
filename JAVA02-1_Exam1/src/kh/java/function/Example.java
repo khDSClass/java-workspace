@@ -62,8 +62,29 @@ public class Example {
 		
 	}
 	
+	public void exam4() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("문자 입력 : ");
+		String str = sc.next();
+		char ch = str.charAt(0);
+		int code = ch;
+		System.out.printf("%c의 유니코드 값 : %d",ch,code);
+	}
 	
-	
+	public void exam5() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("국어점수 입력 : ");
+		double kor = sc.nextDouble();
+		System.out.print("수학점수 입력 : ");
+		double math = sc.nextDouble();
+		System.out.print("영어점수 입력 : ");
+		double eng = sc.nextDouble();
+		System.out.println("========== 결과 ==========");
+		int sum = (int)(kor+math+eng);
+		int avg = sum/3;
+		System.out.println("총점 : "+sum);
+		System.out.println("평균 : "+avg);
+	}
 	
 	
 	
