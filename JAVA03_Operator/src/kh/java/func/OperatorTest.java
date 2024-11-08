@@ -96,8 +96,103 @@ public class OperatorTest {
 		System.out.println("!result1 : "+not);
 		
 	}
+	public void test5() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("첫번째 정수 입력 : ");
+		int num1 = sc.nextInt();
+		System.out.print("두번째 정수 입력 : ");
+		int num2 = sc.nextInt();
+		//삼항연산자     1.논리값(조건식) ? 2. 1번논리값이 true면 여기있는게 실행 : 3. 1번논리값이 false 여기있는게 실행 ;
+		int result = num1 > num2 ? num1 : num2;
+		System.out.println("result : "+result);
+		
+		boolean check = num1 > num2;
+		int result2 = check ? num1 : num2;
+		System.out.println("result2 : "+result2);
+		
+		System.out.println("result3 : " + (num1 > num2 ? num1 : num2));
+		
+		
+		String str = num1 > num2 ? num1+"이 더 큼":"num2가 더 크다";
+	}
 	
+	public void test6() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수를 입력하세요 : ");
+		int num = sc.nextInt();
+		//입력받은 정수가 10이상 20이하면 "정답" / 아니면 "오답" 을 출력
+		boolean result1 = 10 <= num;
+		boolean result2 = num <= 20;
+		boolean result = result1 && result2;
+		String resultString = result ? "정답" : "오답";
+		System.out.println(resultString);
+		System.out.println(result ? "정답" : "오답");
+		System.out.println(10<=num && num<=20 ? "정답" : "오답");
+	}
+	public void exam1() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("첫번째 수 입력 : ");
+		int num1 = sc.nextInt();
+		System.out.print("두번째 수 입력 : ");
+		int num2 = sc.nextInt();
+		System.out.println("========== 결과 ==========");
+		int result1 = num1 + num2;
+		System.out.println("두 수를 더한 수 : " + result1);
+		System.out.println("두 수를 뺀 수 : " + (num1 - num2));
+		System.out.println("두 수를 곱한 수 : "+(num1 * num2));
+		System.out.printf("두 수를 나눈 수 : %.2f",((double)num1 / num2));
+	}
+	public void exam4() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("나이를 입력하세요 : ");
+		int age = sc.nextInt();
+		//입력받은 나이가 20 이상이면 "성인입니다" 20 미만이면 "미성년자 입니다"
+		//String result = age >= 20 ?"성인입니다." :"미성년자입니다.";
+		//String result = age < 20 ? "미성년자입니다." : "성인입니다.";
+		
+		//입력받은 나이가 20 이상이면 "성인입니다" 20 미만이면 "미성년자 입니다" 5 이하면 "유아입니다"
+		//String result = age >= 20 ? "성인입니다." : age <= 5 ? "유아입니다." : "미성년자 입니다.";
+		
+		String result = age < 20 ? age <= 5 ? "유아입니다." : "미성년자 입니다." : "성인입니다.";
+		System.out.println(result);
+	}
+	
+	public void exam5() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("국어 점수 입력 : ");
+		int kor = sc.nextInt();
+		System.out.print("수학 점수 입력 : ");
+		int math = sc.nextInt();
+		System.out.print("영어 점수 입력 : ");
+		int eng = sc.nextInt();
+		int sum = kor + math + eng;
+		double avg = sum/3.0;
+		System.out.printf("합계 : %d\n평균 : %.2f\n",sum,avg);
+		String result = (kor >= 40)&&(math >= 40)&&(eng >= 40)&&(avg>=60)?"합격":"불합격";
+		System.out.println(result);
+	}
+	public void exam6() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수 입력 : ");
+		int num = sc.nextInt();
+		String result = num%2 == 1 ? "홀수" : "짝수";
+		System.out.println(result);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

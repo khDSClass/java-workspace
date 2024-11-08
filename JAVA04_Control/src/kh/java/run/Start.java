@@ -1,13 +1,13 @@
 package kh.java.run;
 
-import kh.java.func.OperatorTest;
+import kh.java.func.IfTest;
 
 public class Start {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		OperatorTest ot = new OperatorTest();
-		ot.exam5();
+		IfTest it = new IfTest();
+		it.test2();
 	}
 
 }
