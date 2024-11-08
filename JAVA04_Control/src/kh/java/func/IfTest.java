@@ -98,6 +98,81 @@ public class IfTest {
 			System.out.println("짝수!");
 		}
 	}
+	public void exam4() {
+		Scanner sc = new Scanner(System.in);
+		int adultPrice = 30000;
+		int kidPrice = 10000;
+		System.out.println("========== 놀이공원 프로그램 ==========");
+		System.out.print("입장하실 총 인원은 몇명입니까? : ");
+		int totalCount = sc.nextInt();
+		System.out.print("어른은 몇명입니까?(1인당 "+adultPrice+"원) : ");
+		int adult = sc.nextInt();
+		System.out.print("아이는 몇명입니까?(1인당 "+kidPrice+"원) : ");
+		int kids = sc.nextInt();
+		if(totalCount == adult + kids) {
+			int totalPrice = adult*adultPrice + kids*kidPrice;
+			System.out.println("지불하실 총 금액은 "+totalPrice+"원 입니다.");
+		}else {
+			System.out.println("인원수가 맞지 않습니다.");
+		}
+	}
+	
+	public void exam5() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("========== 퀴즈 프로그램 ==========");
+		int count = 0;
+		System.out.println("첫번째 퀴즈");
+		System.out.print("사과는 영어로 무엇일까요(1.apple, 2.스티브 잡스) : ");
+		int an1 = sc.nextInt();
+		if(an1 == 1) {
+			count++;
+			System.out.println("정답!");
+		}else {
+			System.out.println("땡!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		}
+		
+		System.out.println("두번째 퀴즈");
+		System.out.print("바나나는 길어 길으면 기차 기차는 (1.비싸, 2.빨라) : ");
+		int an2 = sc.nextInt();
+		if(an2 == 2) {
+			count++;
+			System.out.println("정답!");
+		}else {
+			System.out.println("땡!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		}
+		System.out.println("총 "+count+"문제 맞추셨습니다.");
+		//정답을 2개 다 맞춘경우 (1번에 1입력/2번에 2입력)
+		//정답을 1개만 맞춘경우	(1번에 1입력/2번에 1입력 , 1번에 2입력 / 2번에 2입력)
+		//정답을 못맞춘 경우		(1번에 2입력/2번에 1입력)
+		/*
+		if(an1 == 1 && an2 == 2) {
+			System.out.println("총 2문제 맞추셨습니다.");
+		}
+		if((an1 == 1 && an2 == 1) || (an1 == 2 && an2 == 2)) {
+			System.out.println("총 1문제 맞추셨습니다.");
+		}
+		if(an1 == 2 && an2 == 2) {
+			System.out.println("총 1문제 맞추셨습니다.");
+		}
+		if(an1 == 2 && an2 == 1) {
+			System.out.println("총 0문제 맞추셨습니다.");
+		}
+		
+		if(an1 == 1) {
+			if(an2 == 1) {
+				System.out.println("총 1문제 맞췄습니다.");
+			}else {
+				System.out.println("총 2문제 맞췄습니다.");
+			}
+		}else {
+			if(an2 == 1) {
+				System.out.println("총 0문제 맞췄습니다.");
+			}else {
+				System.out.println("총 1문제 맞췄습니다.");
+			}
+		}
+		*/
+	}
 }
 
 
