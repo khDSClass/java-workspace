@@ -243,6 +243,48 @@ public class IfTest {
 		}
 		*/
 	}
+	public void exam7() {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("========== 대/소문자 변환 프로그램 ==========");
+		System.out.print("문자 입력 : ");
+		String str = sc.next();
+		char ch = str.charAt(0);
+		
+		//대문자는 65 ~ 90 / 소문자는 97 ~ 122
+		System.out.println("===== 결과 =====");
+		if(65 <= ch && ch <= 90) {
+			//대문자 -> 소문자로 변환 : +32
+			System.out.println("대문자를 입력하셨습니다.");
+			ch += 32;
+			//ch = (char)(ch+32);
+			System.out.println("소문자로 변환 : "+ch);
+			//char changeCh = (char)(ch + 32);
+			//System.out.println("소문자로 변환 : "+changeCh);
+		}else if('a' <= ch && ch <= 'z') {
+			//소문자 -> 대문자로 변환 : -32
+			System.out.println("소문자를 입력하셨습니다.");
+			ch -= 32;
+			System.out.println("대문자로 변환 : "+ch);
+		}else {
+			System.out.println("잘못입력하셨습니다. 영문자를 입력해주세요.");
+		}
+	}
+	public void exam8() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수 입력 : ");
+		int num = sc.nextInt();
+		System.out.println("===== 결과 =====");
+		if(num == 0 || (num%3 != 0 && num%4 !=0)) {
+			System.out.printf("[%d]은(는) 3의 배수도 4의 배수도 아닙니다.",num);
+		}else if(num%3 == 0 &&  num%4 == 0) {
+			System.out.printf("[%d]은(는) 3의 배수이면서 4의 배수입니다.",num);
+		}else if(num%3 == 0) {
+			System.out.printf("[%d]은(는) 3의 배수입니다.",num);
+		}else if(num%4 == 0) {
+			System.out.printf("[%d]은(는) 4의 배수입니다.",num);
+		}
+	}
 }
 
 
