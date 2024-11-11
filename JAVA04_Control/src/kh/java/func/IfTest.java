@@ -173,6 +173,76 @@ public class IfTest {
 		}
 		*/
 	}
+	
+	public void exam6() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("========== 심리테스트 ==========");
+		System.out.print("당신은 술을 좋아하십니까(1.yes, 2.no)? : ");
+		int an1 = sc.nextInt();
+		if(an1 == 1) {			
+			//yes라고 답한 경우
+			System.out.print("당신은 담배를 피웁니까(1.yes, 2.no)? : ");
+			int an2 = sc.nextInt();
+			if(an2 == 1) {
+				System.out.println("담배는 건강에 좋지 않습니다.");
+			}else {
+				System.out.println("술은 간에 좋지 않습니다.");
+			}
+		}else {
+			//no라고 답한 경우
+			System.out.print("당신은 이성친구가 있습니까?(1.yes, 2.no) : ");
+			int an2 = sc.nextInt();
+			if(an2 == 1) {
+				System.out.println("올..ㅋ");
+			}else {
+				System.out.println("힘내요 ㅜㅜ");
+			}
+		}
+		
+	}
+	
+	public void test3() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수를 입력하세요 : ");
+		int num = sc.nextInt();
+		
+		if(num > 1000) {
+			System.out.println("1000보다 큰 수 입니다.");
+		}else if(num > 100) {
+			System.out.println("100보다 큰 수 입니다.");
+		}else if(num > 10) {
+			System.out.println("10보다 큰 수 입니다.");
+		}else {
+			//위의 if, else if 조건에 모두 해당되지 않으면(모든 조건식 연산결과가 false가 나오면)
+			System.out.println("10 이하의 수 입니다.");
+		}
+		
+		
+		/*
+		if(num == 1) {
+			System.out.println("1을 입력하셨군요");
+		}
+		if(num == 2) {
+			System.out.println("2를 입력하셨네요");
+		}
+		if(num == 3) {
+			System.out.println("3입니다!");
+		}
+		if(num < 1 || num > 3) {
+			System.out.println("1~3 사이 정수를 입력하세요.");
+		}
+		
+		if(num == 1) {
+			System.out.println("1을 입력하셨군요");
+		}else if(num == 2) {
+			System.out.println("2를 입력하셨네요");
+		}else if(num == 3) {
+			System.out.println("3입니다!");
+		}else {
+			System.out.println("1~3 사이 정수를 입력하세요.");
+		}
+		*/
+	}
 }
 
 
