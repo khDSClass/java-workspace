@@ -1,5 +1,7 @@
 package kh.java.func;
 
+import java.util.Scanner;
+
 public class ForTest {
 	public void test1() {
 		//"안녕하세요"문자열을 3번 출력
@@ -25,7 +27,36 @@ public class ForTest {
 		for(int i=0;i<4;i++) {
 			System.out.println("쉬는시간");
 		}
-		
+		for(int i=0;i<5;i++) {
+			System.out.println(i+1+"_테스트");
+		}
+	}
+	public void exam1() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("몇번 출력하시겠습니까?");
+		int count = sc.nextInt();
+		for(int i=0;i<count;i++) {
+			System.out.println("안녕하세요");
+		}
+	}
+	public void exam2() {
+		int dan = 2;
+		System.out.println(dan+"단 입니다.");
+		for(int i=0;i<9;i++) {
+			System.out.printf("%d * %d = %d\n",dan,i+1,dan*(i+1));
+		}
+		/*
+		System.out.printf("%d * %d = %d\n",dan,1,dan*1);
+		System.out.printf("%d * %d = %d\n",dan,2,dan*2);
+		System.out.printf("%d * %d = %d\n",dan,3,dan*3);
+		System.out.printf("%d * %d = %d\n",dan,4,dan*4);
+		System.out.printf("%d * %d = %d\n",dan,5,dan*5);
+		System.out.printf("%d * %d = %d\n",dan,6,dan*6);
+		System.out.printf("%d * %d = %d\n",dan,7,dan*7);
+		System.out.printf("%d * %d = %d\n",dan,8,dan*8);
+		System.out.printf("%d * %d = %d\n",dan,9,dan*9);
+		*/
+		//...
 	}
 }
 

@@ -9,7 +9,7 @@ public class Start {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ForTest ft = new ForTest();
-		ft.test1();
+		ft.exam2();
 	}
 
 }
