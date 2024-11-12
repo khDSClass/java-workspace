@@ -58,6 +58,63 @@ public class ForTest {
 		*/
 		//...
 	}
+	public void exam3() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("몇단을 출력하시겠습니까?");
+		int dan = sc.nextInt();
+		System.out.println(dan+"단 입니다.");
+		for(int i=0;i<9;i++) {
+			System.out.printf("%d * %d = %d\n",dan,i+1,dan*(i+1));
+		}
+	}
+	public void exam4() {
+		Scanner sc = new Scanner(System.in);
+		int sum = 0;
+		for(int i=0;i<5;i++) {
+			System.out.print(i+"_정수 값을 입력하세요 : ");
+			//int num = sc.nextInt();
+			//sum += num;
+			//sum = sum + num;
+			sum += sc.nextInt();
+		}
+		System.out.println("입력한 5개 정수의 합은 : "+sum);
+	}
+	public void exam5() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("첫번째 정수 입력 : ");
+		int num1 = sc.nextInt();
+		System.out.print("두번째 정수 입력 : ");
+		int num2 = sc.nextInt();
+		int sum = 0;
+		for(int i=num1;i<num2+1;i++) {
+			sum += i;
+		}
+		System.out.printf("%d ~ %d의 정수의 합 : %d",num1,num2,sum);
+	}
+	
+	public void exam6() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("숫자 입력 : ");
+		int num = sc.nextInt();
+		int sum = 0;
+		for(int i=0;i<=num;i++) {
+			sum += i;
+			i++;
+		}
+		/*
+		for(int i=0;i<=num;i=i+2) {				
+			sum += i;
+		}
+		
+		for(int i=1;i<=num;i++) {	
+			if(i%2 == 0) {	
+				System.out.println("i값 누적");
+				sum += i;
+			}
+		}
+		*/
+		System.out.println("짝수들의 합은 : "+sum);
+	}
 }
 
 
