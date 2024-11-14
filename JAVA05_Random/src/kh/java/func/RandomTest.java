@@ -172,7 +172,6 @@ public class RandomTest {
 				System.out.println("<< GAME START >>");
 				int count = 1;			//게임 회차 계산용 변수
 				int randomNum = r.nextInt(99)+1;//1~99사이의 숫자 중 정답숫자 1개 생성
-				System.out.println("정답숫자 : "+randomNum);
 				while(true) {
 					System.out.print(count+"회차 번호 입력 : ");
 					int num = sc.nextInt();
