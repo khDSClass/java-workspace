@@ -160,6 +160,38 @@ public class ArrayTest {
 		System.out.println("합계 : "+arr1[3]);
 		System.out.printf("평균 : %.2f",arr1[3]/(double)3);
 	}
+	
+	public void motel() {
+		Scanner sc = new Scanner(System.in);
+		//방을 관리할 배열 -> 방은 총 10개
+		//배열 내부의 데이터가 0이면 빈방 / 1이면 손님이 있는 방
+		int[] rooms = new int[10];//배열을 할당하면 기본값으로 세팅(정수 -> 0 -> 최초에 모두 빈 방 상태)
+		//boolean[] rooms = new boolean[10];//기본값 false(빈방), true 손님있는방, 
+		boolean power = true;
+		while(power) {
+			System.out.println("\n---------- 모텔 관리 프로그램 ----------\n");
+			System.out.println("1. 입실");
+			System.out.println("2. 퇴실");
+			System.out.println("3. 방보기");
+			System.out.println("4. 종료");
+			System.out.print("선택 >> ");
+			int select = sc.nextInt();
+			switch(select) {
+			case 1:
+				//구현순서 2
+				break;
+			case 2:
+				//구현순서 3
+				break;
+			case 3:
+				//구현순서 1
+				break;
+			case 4:
+				power = false;
+				break;
+			}
+		}
+	}
 }
 
 
