@@ -152,10 +152,79 @@ public class RandomTest {
 				break;
 			}
 		}
-		
-		
 	}//메소드 종료
-}
+	
+	public void upAndDown() {
+		Scanner sc = new Scanner(System.in);
+		Random r = new Random();
+		boolean power = true;
+		int score = 0;			//점수기록용 변수
+		while(power) {
+			System.out.println("========== UP & DOWN GAME ==========");
+			System.out.println("1. GAME START");
+			System.out.println("2. GAME SCORE");
+			System.out.println("3. END GAME");
+			System.out.print("선택 >> ");
+			int select = sc.nextInt();
+			
+			switch(select) {
+			case 1:
+				System.out.println("<< GAME START >>");
+				int count = 1;			//게임 회차 계산용 변수
+				int randomNum = r.nextInt(99)+1;//1~99사이의 숫자 중 정답숫자 1개 생성
+				System.out.println("정답숫자 : "+randomNum);
+				while(true) {
+					System.out.print(count+"회차 번호 입력 : ");
+					int num = sc.nextInt();
+					if(num < 1 || num > 99) {
+						System.out.println("입력범위 오류");
+						continue;//아래코드 실행하지않고 반복문 조건처리 부분으로 이동
+					}
+					
+					//up이 출력되는 경우 : 정답숫자보다 사용자가 입력한 숫자가 작은경우
+					//down이 출력되는 경우 : 정답숫자보다 사용자가 입력한 숫자가 큰경우
+					if(num < randomNum) {
+						System.out.println("<< UP >>");		
+					}else if(num > randomNum) {
+						System.out.println("<< DOWN >>");
+					}else if(num == randomNum) {
+						if(score == 0 || score > count) {//이전기록보다 적은회차로 정답을 맞출때만 갱신							
+							score = count;//정답을 맞추면 해당 회차를 기록
+						}
+						/*
+						if(score == 0) {
+							score = count;//정답을 맞추면 해당 회차를 기록
+						}else {
+							if(score > count) {//이전기록보다 적은회차로 정답을 맞출때만 갱신							
+								score = count;//정답을 맞추면 해당 회차를 기록
+							}
+						}
+						*/
+						System.out.println("<< 정답 >>");
+						break;
+					}					
+					count++;
+				}//번호입력을 반복하는 반복문 종료
+				
+				break;
+			case 2:
+				if(score == 0) {
+					System.out.println("아직 기록이 없습니다.");
+				}else {
+					System.out.println("최고기록은 "+score+"회 입니다.");
+				}
+				break;
+			case 3:
+				power = false;
+				break;//switch 종료
+			}//switch(메뉴 선택에 따른 조건문) 종료 
+			
+		}//while(전체 메뉴 반복문) 종료
+		
+	}//upAndDown 메소드 종료
+	
+}//클래스 종료
+
 
 
 

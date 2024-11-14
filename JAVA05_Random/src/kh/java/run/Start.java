@@ -7,7 +7,7 @@ public class Start {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		RandomTest rt = new RandomTest();
-		rt.rsp();
+		rt.upAndDown();
 	}
 
 }
