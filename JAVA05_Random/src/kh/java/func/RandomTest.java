@@ -179,7 +179,6 @@ public class RandomTest {
 						System.out.println("입력범위 오류");
 						continue;//아래코드 실행하지않고 반복문 조건처리 부분으로 이동
 					}
-					
 					//up이 출력되는 경우 : 정답숫자보다 사용자가 입력한 숫자가 작은경우
 					//down이 출력되는 경우 : 정답숫자보다 사용자가 입력한 숫자가 큰경우
 					if(num < randomNum) {
@@ -221,6 +220,116 @@ public class RandomTest {
 		}//while(전체 메뉴 반복문) 종료
 		
 	}//upAndDown 메소드 종료
+	
+	public void br31() {
+		Scanner sc = new Scanner(System.in);
+		Random r = new Random();
+		boolean power = true;
+		int win = 0;
+		int lose = 0;
+		while(power) {
+			System.out.println("========== BR 31 ==========");
+			System.out.println("1. GAME START");
+			System.out.println("2. GAME SCORE");
+			System.out.println("3. END GAME");
+			System.out.print("선택 >> ");
+			int select = sc.nextInt();
+			switch(select) {
+			case 1:
+				//턴게임 -> 사용자와 컴퓨터가 1~3 사이의 숫자를 외치면 숫자가 하나씩커지는 게임
+				// -> 이때 31을 외치는쪽이 패배하는 게임
+				int num = 0;		//화면에 출력할 숫자
+				while(true) {
+					System.out.println("<< YOUR TURN >>");
+					
+					while(true) {
+						System.out.print("Input Number(1~3) : ");
+						int userNum = sc.nextInt();
+						if(userNum < 1 || userNum > 3) {
+							System.out.println("1~3 사이 값을 입력해주세요.");		
+							continue;
+						}else {
+							for(int i=0;i<userNum;i++) {							
+								num++;
+								System.out.println(num+"!");
+								if(num == 31) {
+									lose++;
+									System.out.println("패배");
+									break;
+								}
+							}		
+							break;
+						}
+						
+					}
+								
+					if(num == 31) {
+						break;
+					}
+					
+					/*
+					if(userNum == 1) {
+						for(int i=0;i<1;i++) {							
+							num++;
+							System.out.println(num+"!");
+						}
+					}else if(userNum == 2) {
+						for(int i=0;i<2;i++) {
+							num++;
+							System.out.println(num+"!");
+						}						
+						
+					}else if(userNum == 3) {
+						for(int i=0;i<3;i++) {
+							num++;
+							System.out.println(num+"!");
+						}						
+					}
+					*/
+					System.out.println("<< COMPUTER TURN >>");
+					int comNum = r.nextInt(3)+1;
+					for(int i=0;i<comNum;i++) {
+						num++;
+						System.out.println(num + "!");
+						if(num == 31) {
+							win++;
+							System.out.println("승리");
+							break;
+						}
+					}
+					if(num == 31) {
+						break;
+					}
+					/*
+					if(comNum == 1) {
+						System.out.println(userNum+1+"!");
+						
+					}else if(comNum == 2) {
+						System.out.println(userNum+1+"!");
+						
+						System.out.println(userNum+1+1+"!");
+						
+					}else if(comNum == 3) {
+						System.out.println(userNum+1+"!");
+						
+						System.out.println(userNum+1+1+"!");
+						
+						System.out.println(userNum+1+1+1+"!");
+						
+					}
+					*/
+				}	
+				break;
+			case 2:
+				System.out.println("WIN : "+win);
+				System.out.println("LOSE : "+lose);
+				break;
+			case 3:
+				power = false;
+				break;
+			}//switch 종료
+		}//while(전체 메뉴 반복) 종료
+	}//br31 메소드 종료
 	
 }//클래스 종료
 
