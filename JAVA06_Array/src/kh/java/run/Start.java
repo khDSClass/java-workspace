@@ -1,12 +1,13 @@
 package kh.java.run;
 
 import kh.java.func.ArrayTest;
+import kh.java.func.ArrayTest2;
 
 public class Start {
 
 	public static void main(String[] args) {
-		ArrayTest at = new ArrayTest();
-		at.lotto();
+		ArrayTest2 at = new ArrayTest2();
+		at.test2();
 	}
 
 }
