@@ -42,6 +42,7 @@ public class StudentController {
 				printAllStudent();
 				break;
 			case 3:
+				printOneStudent();
 				break;
 			case 4:
 				break;
@@ -69,7 +70,6 @@ public class StudentController {
 		System.out.print("등록 할 학생 주소 입력 : ");
 		sc.nextLine();
 		String addr = sc.nextLine();
-		System.out.println("현재 index : "+index);
 		//입력받은 정보를 각 배열에 저장
 		names[index] = name;
 		ages[index] = age;
@@ -89,6 +89,31 @@ public class StudentController {
 			System.out.println(names[i]+"\t"+ages[i]+"\t"+addrs[i]);
 		}
 	}//printAllStudent() 종료
+	
+	//이름을 입력받아서 해당이름과 일치하는 학생정보를 출력하는 메소드
+	public void printOneStudent() {
+		System.out.println("\n---------- 학생 정보 출력 ----------\n");
+		System.out.print("조회 할 학생 이름 입력 : ");
+		String name = sc.next();
+		//입력받은 이름을 names배열에서 조회 -> 배열에 몇번째 있는지 조회(몇번째인지 알아야 나이랑,주소도 찾을 수 있으므로)
+		int searchIndex = -1;//조회가 실패했을때 구분 할 숫자를 처음에 초기화
+		for(int i=0;i<index;i++) {
+			//문자열이 같은지 비교하는 방법 => 문자열1.equals(문자열2) => 같으면 true/다르면 false 리턴
+			if(name.equals(names[i])) {
+				searchIndex = i;
+				break;//동명이인이 없으면 같은이름을 다시 찾을 수 없으므로 이후 탐색은 의미가 없으므로 반복문 중단
+			}
+		}
+		if(searchIndex == -1) {
+			System.out.println("학생 정보를 조회할 수 없습니다.");
+		}else {
+			System.out.println("이름 : "+names[searchIndex]);
+			System.out.println("나이 : "+ages[searchIndex]);
+			System.out.println("주소 : "+addrs[searchIndex]);
+		}
+		
+	}//printOneStudent() 종료
+	
 }
 
 
