@@ -45,8 +45,10 @@ public class StudentController {
 				printOneStudent();
 				break;
 			case 4:
+				updateStudent();
 				break;
 			case 5:
+				deleteStudent();
 				break;
 			case 0:
 				System.out.println("시스템을 종료합니다.");
@@ -104,6 +106,7 @@ public class StudentController {
 				break;//동명이인이 없으면 같은이름을 다시 찾을 수 없으므로 이후 탐색은 의미가 없으므로 반복문 중단
 			}
 		}
+		
 		if(searchIndex == -1) {
 			System.out.println("학생 정보를 조회할 수 없습니다.");
 		}else {
@@ -113,7 +116,66 @@ public class StudentController {
 		}
 		
 	}//printOneStudent() 종료
+
 	
+	//이름을 입력받아서 해당 학생이 있으면 나이와 주소를 추가로 입력받아서 정보를 수정하는 메소드
+	public void updateStudent() {
+		System.out.println("\n---------- 학생 정보 수정 ----------\n");
+		System.out.print("수정 할 학생 이름 입력 : ");
+		String name = sc.next();
+		//입력받은 이름을 names배열에서 조회 -> 배열에 몇번째 있는지 조회(몇번째인지 알아야 나이랑,주소도 찾을 수 있으므로)
+		int searchIndex = searchStudent(name);
+		if(searchIndex == -1) {
+			System.out.println("학생 정보를 조회할 수 없습니다.");
+		}else {
+			System.out.print("수정 할 나이 입력 : ");
+			int age = sc.nextInt();
+			System.out.print("수정 할 주소 입력 : ");
+			sc.nextLine();
+			String addr = sc.nextLine();
+			ages[searchIndex] = age;
+			addrs[searchIndex] = addr;
+			System.out.println("정보 수정 완료");
+		}
+		
+	}//updateStudent() 종료
+	
+	//학생 이름을 입력받아서 존재하면 해당 학생 정보를 삭제하는 메소드
+	public void deleteStudent() {
+		System.out.println("\n---------- 학생 정보 삭제 ----------\n");
+		System.out.print("삭제 할 학생 이름 입력 : ");
+		String name = sc.next();
+		int searchIndex = searchStudent(name);
+		if(searchIndex == -1) {
+			System.out.println("학생 정보를 조회할 수 없습니다.");
+		}else {
+			for(int i=searchIndex;i<index-1;i++) {
+				names[i] = names[i+1];
+				ages[i] = ages[i+1];
+				addrs[i] = addrs[i+1];
+			}
+			index--;
+			names[index] = null;
+			ages[index] = 0;
+			addrs[index] = null;
+			
+			System.out.println("삭제완료");
+		}
+	}//deleteStudent() 종료
+	
+	
+	//학생이름을 매개변수로 받아서 names배열에 몇번째에 있는지 찾아주는 메소드
+	//단, 학생이름이 존재하지 않으면 -1을 리턴
+	public int searchStudent(String name) {
+		int searchIndex = -1;
+		for(int i=0;i<index;i++) {
+			if(name.equals(names[i])) {
+				searchIndex = i;
+				break;
+			}
+		}
+		return searchIndex;
+	}//searchStudent() 종료
 }
 
 
