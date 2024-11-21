@@ -36,3 +36,13 @@ public class Gold {
 		return point*0.05;
 	}
 }
+
+
+
+
+
+
+
+
+
+

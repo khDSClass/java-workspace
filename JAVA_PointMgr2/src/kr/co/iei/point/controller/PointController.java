@@ -57,8 +57,10 @@ public class PointController {
 				printOneMember();
 				break;
 			case 4:
+				updateMember();
 				break;
 			case 5:
+				deleteMember();
 				break;
 			case 0:
 				System.out.println("시스템을 종료합니다.");
@@ -205,6 +207,119 @@ public class PointController {
 		}
 		*/
 	}//printOneMember() 종료
+	
+	public void updateMember() {
+		System.out.println("\n---------- 회원 정보 수정 ----------\n");
+		System.out.print("수정 할 회원 이름 입력 : ");
+		String name = sc.next();
+		SearchResult result = searchMember3(name);
+		if(result == null) {
+			System.out.println("회원 정보를 조회할 수 없습니다.");
+		}else {
+			String type = result.getType();
+			int index = result.getIndex();
+			
+			System.out.print("수정 할 등급 입력[silver/gold/vip] : ");
+			String grade = sc.next();
+			System.out.print("수정 할 포인트 입력 : ");
+			int point = sc.nextInt();
+			
+			//1) setter를 이용한 방법 //-> grade변수의 데이터는 변경할 수 있는데, 객체가 안바뀌므로 보너스가 적용X	
+			/*
+			switch(type) {
+			case "silver":
+				Silver s = sMembers[index];
+				s.setGrade(grade);
+				s.setPoint(point);
+				break;
+			case "gold":
+				Gold g = gMembers[index];
+				g.setGrade(grade);
+				g.setPoint(point);
+				break;
+			case "vip":
+				Vip v = vMembers[index];
+				v.setGrade(grade);
+				v.setPoint(point);
+				break;
+			}
+			*/
+			//2) 새로운 객체로 교체하는 방법
+			switch(type) {
+			case "silver":
+				for(int i=index;i<sIndex-1;i++) {
+					sMembers[i] = sMembers[i+1];
+				}
+				sMembers[--sIndex] = null;				
+				break;
+			case "gold":
+				for(int i=result.getIndex();i<gIndex-1;i++) {
+					gMembers[i] = gMembers[i+1];
+				}
+				gMembers[--gIndex] = null;				
+				break;
+			case "vip":
+				for(int i=index;i<vIndex-1;i++) {
+					vMembers[i] = vMembers[i+1];
+				}
+				vMembers[--vIndex] = null;				
+				break;
+			}
+			switch(grade) {
+			case "silver":
+				Silver s = new Silver(grade, name, point);
+				sMembers[sIndex] = s;
+				sIndex++;
+				break;
+			case "gold":
+				gMembers[gIndex] = new Gold(grade, name, point);
+				gIndex++;
+				break;
+			case "vip":
+				vMembers[vIndex++] = new Vip(grade, name, point);
+				break;
+			}
+			System.out.println("정보 수정 완료");
+		}
+	}//updateMember() 종료
+	
+	
+	public void deleteMember() {
+		System.out.println("\n---------- 회원 정보 삭제 ----------\n");
+		System.out.print("삭제 할 회원 이름 입력 : ");
+		String name = sc.next();
+		SearchResult result = searchMember3(name);
+		if(result == null) {
+			System.out.println("회원 정보를 찾을 수 없습니다.");
+		}else {
+			String type = result.getType();
+			int index = result.getIndex();
+			switch(type) {
+			case "silver":
+				for(int i=index;i<sIndex-1;i++) {
+					sMembers[i] = sMembers[i+1];
+				}
+				sMembers[sIndex-1] = null;
+				sIndex--;
+				break;
+			case "gold":
+				for(int i=index;i<gIndex-1;i++) {
+					gMembers[i] = gMembers[i+1];
+				}
+				gIndex--;
+				gMembers[gIndex] = null;
+				break;
+			case "vip":
+				for(int i=index;i<vIndex-1;i++) {
+					vMembers[i] = vMembers[i+1];
+				}
+				vMembers[--vIndex] = null;
+				break;
+			}
+			System.out.println("회원 삭제 완료!");
+		}
+	}//deleteMember() 종료
+	
 	
 	public int searchMember1(String name) {		
 		//실버등급 회원에서 이름 조회
