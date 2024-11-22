@@ -3,8 +3,7 @@ package kr.co.iei.point.vo;
 public class Silver {
 	private String grade;
 	private String name;
-	private int point;
-	
+	private int point;	
 	public Silver() {
 		
 	}

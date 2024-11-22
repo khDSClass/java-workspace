@@ -1,39 +1,19 @@
 package kr.co.iei.point.vo;
 
-public class Gold {
-	private String grade;
-	private String name;
-	private int point;
+public class Gold extends Silver{
+
 	public Gold() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	public Gold(String grade, String name, int point) {
-		super();
-		this.grade = grade;
-		this.name = name;
-		this.point = point;
+		super(grade, name, point);
+		// TODO Auto-generated constructor stub
 	}
-	public String getGrade() {
-		return grade;
-	}
-	public void setGrade(String grade) {
-		this.grade = grade;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getPoint() {
-		return point;
-	}
-	public void setPoint(int point) {
-		this.point = point;
-	}
+	@Override
 	public double getBonus() {
-		return point*0.05;
+		return 0.05*getPoint();
 	}
 }
 
