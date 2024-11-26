@@ -3,6 +3,7 @@ package kh.java.func;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Scanner;
 
 public class ApiTest {
 	
@@ -149,7 +150,67 @@ public class ApiTest {
 				+":"+day1.get(Calendar.SECOND);
 		System.out.println(str4);
 	}
+	public void dday() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("========== D-DAY 계산기 ==========");
+		System.out.print("D-DAY [년도] 입력 : ");
+		int year = sc.nextInt();
+		System.out.print("D-DAY [월] 입력 : " );
+		int month = sc.nextInt();
+		System.out.print("D-DAY [일] 입력 : ");
+		int date = sc.nextInt();
+		Calendar today = Calendar.getInstance();
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
+		
+		long todayMs = today.getTimeInMillis();
+		Date todayDate = new Date(todayMs);
+		
+		String todayString = sdf.format(todayDate);
+		//Calendar dday = Calendar.getInstance();
+		/*
+		dday.set(Calendar.YEAR, year);
+		dday.set(Calendar.MONTH, month-1);
+		dday.set(Calendar.DATE, date);
+		*/
+		today.set(year, month-1, date);
+		long ddayMs = today.getTimeInMillis();
+		Date ddayDate = new Date(ddayMs);
+		String ddayString = sdf.format(ddayDate);
+		
+		System.out.println("todayMs : "+todayMs);
+		System.out.println("ddayMs : "+ddayMs);
+		
+		
+		System.out.println("오늘 날짜 : " +todayString);
+		System.out.println("dday 날짜 : "+ddayString);
+		//두 날짜 사이에 몇 ms가 지났는지 계산
+		long time = ddayMs - todayMs;
+		long interDay = time/(1000*60*60*24);
+		if(time > 0) {
+			System.out.println(interDay+"일 남았습니다.");
+		}else if(time < 0) {
+			System.out.println(Math.abs(interDay)+"일 지났습니다.");
+		}else {
+			System.out.println("D-Day 입니다.");
+		}
+		
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

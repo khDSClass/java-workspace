@@ -9,7 +9,7 @@ public class Start {
 
 	public static void main(String[] args) {
 		ApiTest at = new ApiTest();
-		at.test2();
+		at.dday();
 		
 	}
 
