@@ -111,7 +111,6 @@ public class PointControllerImpl implements PointController {
 			//다운캐스팅을 해야하는 경우 : 자식객체에만 있는 기능을 사용 할 때			
 			System.out.println(g.getGrade()+"\t"+g.getName()+"\t"+g.getPoint()+"\t"+g.getBonus());
 		}
-		
 	}
 
 	@Override

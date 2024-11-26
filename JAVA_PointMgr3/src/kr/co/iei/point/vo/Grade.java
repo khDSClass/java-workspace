@@ -33,6 +33,7 @@ public abstract class Grade {
 		this.point = point;
 	}
 	public abstract double getBonus();
+	
 }
 
 
