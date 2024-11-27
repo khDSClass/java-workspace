@@ -1,15 +1,13 @@
 package kh.java.run;
 
-import kh.java.func.TestClass;
+import kh.java.func.ListTest;
 
 public class Start {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		TestClass tc = new TestClass();
-		tc.test1();
-		
-		
+		ListTest lt = new ListTest();
+		lt.test2();
 	}
 
 }
