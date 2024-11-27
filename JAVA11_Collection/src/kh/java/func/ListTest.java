@@ -1,6 +1,7 @@
 package kh.java.func;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class ListTest {
@@ -59,6 +60,7 @@ public class ListTest {
 			list.add(num);
 			System.out.print("한번 더 입력하시겠습니까[y/n] ? ");
 			String select = sc.next();
+			
 			if(select.toLowerCase().equals("n")) {
 				break;
 			}
@@ -79,6 +81,62 @@ public class ListTest {
 		}
 	}
 	
+	public void test3() {
+		//정수 저장할 리스트 생성
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		list.add(10);
+		list.add(5);
+		list.add(100);
+		list.add(55);
+		list.add(80);
+		//ArrayList는 기본적으로 toString()을 오버라이딩해서 내부의 데이터를 출력하는 형태로 변경해둠
+		System.out.println(list);
+		//get(index) : 매개변수로 전달한 정수의 위치에 있는 객체를 가져옴
+		int data = list.get(2);
+		System.out.println(data);
+		//add(param1) : 매개변수로 전달된 값을 리스트의 가장 뒤에 추가
+		list.add(20);
+		System.out.println(list);
+		//add(param1,param2) : 첫번째 매개변수 위치에, 두번째 매개변수 값을 추가
+		//추가한 데이터를 기준으로 이후 데이터들을 모두 한칸씩 뒤로 밀림
+		list.add(3, 200);
+		System.out.println(list);
+		//set(param1, param2) : 첫번째 매개변수 위치의 데이터를 두번째 매개변수 값으로 수정
+		list.set(3, 1000);
+		System.out.println(list);
+		//remove(param1) : 매개변수 위치의 데이터를 삭제
+		//삭제된 인덱스를 기준으로 뒤의 데이터들은 1칸씩 땡겨짐
+		
+		int removeData = list.remove(3);
+		System.out.println(removeData);
+		System.out.println(list);
+		
+		//contains(param1) : 매개변수로 전달한 값이 리스트에 있는지 확인 -> 결과를 boolean형으로 리턴
+		boolean bool1 = list.contains(100);
+		boolean bool2 = list.contains(1000);
+		System.out.println("bool1 : "+bool1);
+		System.out.println("bool2 : "+bool2);
+		
+		//indexOf(param1) : 매개변수로 전달한 값이 리스트에 있는 확인 -> 결과를 int 로 리턴(몇번째 있는지)
+		int num1 = list.indexOf(100);
+		int num2 = list.indexOf(1000);//리스트에 존재하지 않으면 -1을 리턴
+		System.out.println("num1 : "+num1);
+		System.out.println("num2 : "+num2);
+		
+		//정렬 : Collections.sort(리스트) : 매개변수로 전달한 리스트를 정렬
+		Collections.sort(list);
+		System.out.println(list);
+		//순서반전 : Collections.reverse(리스트) : 매개변수로 전달한 리스트를 순서를 반전
+		Collections.reverse(list);
+		System.out.println(list);
+		//compareTo() 객체를 저장한 list를 sort할때 기준을 만드는 방법
+		// isEmpty() : list.size() == 0 -> 리스트에 데이터가 하나도 없는지 체크해서 결과를 논리형 리턴
+		System.out.println(list.isEmpty());
+		// clear() : 리스트 내부의 데이터를 모두 삭제
+		list.clear();
+		System.out.println(list);
+		System.out.println(list.isEmpty());
+	}
 
 }
 
