@@ -2,13 +2,15 @@ package kh.java.run;
 
 import kh.java.func.ByteStreamTest;
 import kh.java.func.CharStream;
+import kh.java.func.FileTest;
+import kh.java.func.StreamTest;
 
 public class Start {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		CharStream cs = new CharStream();
-		cs.subStream();
+		FileTest ft = new FileTest();
+		ft.test2();
 	}
 
 }

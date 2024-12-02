@@ -1,6 +1,9 @@
 package kh.java.func;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -73,6 +76,48 @@ public class CharStream {
 			}
 		}
 	}
+	
+	public void readerTest() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("로드 할 파일명 입력 : ");
+		String filename = sc.nextLine();
+		//0. 데이터를 읽어올 보조스트림 선언
+		BufferedReader br = null;
+		
+		try {
+			//1. 파일 내용을 읽어올 주 스트림 생성
+			//해당파일이 존재하지 않으면 파일을 생성하지않고 바로 예외로 빠짐
+			FileReader fr = new FileReader(filename);
+			//생성된 주 스트림을 이용해서 보조스트림 생성
+			br = new BufferedReader(fr);
+			while(true) {
+				//readLine() : 스트림이 연결된 파일에서 1줄 읽어옴
+				//readLine()이 한번 호출될 때마다 한줄읽어오고 다음줄로 넘어감
+				//더이상 읽어올 데이터가 없으면 null을 리턴
+				String str = br.readLine();//2. 읽기 메소드 사용
+				if(str == null) {
+					break;
+				}
+				System.out.println(str);
+			}
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				//3. 자원반환
+				br.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	
 	
 }
