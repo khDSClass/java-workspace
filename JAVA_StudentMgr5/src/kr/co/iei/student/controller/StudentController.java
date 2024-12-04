@@ -51,6 +51,7 @@ public class StudentController {
 	}//main();
 	
 	public void insertStudent() {
+		
 		System.out.println("\n---------- 학생 정보 등록 ----------\n");
 		System.out.print("등록 할 학생 이름 입력 : ");
 		String name = sc.next();
