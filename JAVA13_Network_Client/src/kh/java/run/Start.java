@@ -1,5 +1,6 @@
 package kh.java.run;
 
+import kh.java.func.BaseballClient;
 import kh.java.func.DNSClient;
 import kh.java.func.FileClient;
 import kh.java.func.QuizClient;
@@ -10,8 +11,8 @@ public class Start {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		UdpClient uc = new UdpClient();
-		uc.client();
+		BaseballClient bc = new BaseballClient();
+		bc.client();
 				
 	}
 
